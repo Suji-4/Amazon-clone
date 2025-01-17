@@ -15,15 +15,15 @@ function Prohead()
             <div className="w-full flex flex-row justify-start space-x-4 py-6 mx-14 cursor-pointer">
             <div className="flex flex-col items-center ">
              <img src={men} alt="men"></img>
-           <p>Men's Clothing</p>
+           <p><Link to="/men">Men's Clothing</Link></p>
             </div>
             <div className="flex flex-col items-center">
               <img src={women} alt="women"></img>
-            <p>Women Clothing</p>
+            <p><Link to="/women">Women Clothing</Link></p>
             </div>
             <div className="flex flex-col items-center">
             <img src={kid} alt="kid"></img>
-            <p>Kid's Fashion</p>
+            <p><Link to="/kid">Kid's Fashion</Link></p>
             </div>
             <div className="flex flex-col items-center">
           <a href="#Brand">  <img src={foot} alt="foot"></img>

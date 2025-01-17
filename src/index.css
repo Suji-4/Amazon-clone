@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling across the page */
+ 
+  }
+  
+  
+  body {
+    overflow-x: hidden;
+  }
+  

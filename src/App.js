@@ -15,10 +15,15 @@ import Men from "./Components/Men"
 import Kid from "./Components/Kid"
 import Account from "./Components/Account"
 import Cart from "./Components/Cart"
+import { CartProvider } from "./Components/CartContext";
+import Section from "./Components/Section";
+import ProductDetails from "./Components/ProductDetails";
+
 
 function App() {
  
   return (
+    <CartProvider>
     <BrowserRouter>
       <Routes>
         {/* Main Page Layout */}
@@ -45,10 +50,13 @@ function App() {
       
         {/*sign page*/}
         <Route path="/account" element={<Account/>} />
+        {/*productdetails*/}
+        <Route path="/" element={<Section searchQuery="" />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
       
     </BrowserRouter>
-    
+    </CartProvider>
   );
 }
 

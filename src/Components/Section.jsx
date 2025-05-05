@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import bag1 from "../assets/images/bag1.jpg";
 import pant from "../assets/images/pant - Copy.jpg";
 import watch from "../assets/images/watch - Copy.jpg";
 import mantra from "../assets/images/mantra.jpg";
 
 function Section({ searchQuery }) {
-  const [selectedCategory, setSelectedCategory] = useState(""); 
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const products = [
     {
@@ -17,7 +18,7 @@ function Section({ searchQuery }) {
       rating: "⭐⭐⭐⭐",
       price: 1000,
       Delivery: "FREE delivery ,Mon 20 Jan",
-      Button:"Add to cart",
+      Button: "Add to cart",
     },
     {
       id: 2,
@@ -28,7 +29,7 @@ function Section({ searchQuery }) {
       rating: "⭐⭐⭐⭐",
       price: 999,
       Delivery: "FREE delivery ,Mon 20 Jan",
-      Button:"Add to cart",
+      Button: "Add to cart",
     },
     {
       id: 3,
@@ -39,7 +40,7 @@ function Section({ searchQuery }) {
       rating: "⭐⭐⭐⭐",
       price: 1500,
       Delivery: "FREE delivery ,Mon 20 Jan",
-      Button:"Add to cart",
+      Button: "Add to cart",
     },
     {
       id: 4,
@@ -50,7 +51,7 @@ function Section({ searchQuery }) {
       rating: "⭐⭐⭐⭐",
       price: 149,
       Delivery: "FREE delivery ,Mon 20 Jan",
-      Button:"Add to cart",
+      Button: "Add to cart",
     },
   ];
 
@@ -68,11 +69,36 @@ function Section({ searchQuery }) {
       <div className="w-full lg:w-1/4 bg-gray-100 p-4">
         <p className="font-semibold text-lg mb-4">Categories</p>
         <ul>
-          <li className={`cursor-pointer my-2 ${  selectedCategory === "" ? "font-bold text-blue-600" : "" }`} onClick={() => setSelectedCategory("")}  > All Products </li>
-          <li className={`cursor-pointer my-2 ${ selectedCategory === "Handbags" ? "font-bold text-blue-600" : "" }`} onClick={() => setSelectedCategory("Handbags")} > Handbags </li>
-          <li className={`cursor-pointer my-2 ${ selectedCategory === "Women's Clothing" ? "font-bold text-blue-600"  : "" }`}  onClick={() => setSelectedCategory("Women's Clothing")} > Women's Clothing </li>
-          <li className={`cursor-pointer my-2 $  selectedCategory === "Women's Watches"  ? "font-bold text-blue-600"  : ""  }`} onClick={() => setSelectedCategory("Women's Watches")}  > Women's Watches</li>
-          <li className={`cursor-pointer my-2 ${  selectedCategory === "Women's Accessories"  ? "font-bold text-blue-600"  : "" }`} onClick={() => setSelectedCategory("Women's Accessories")} >  Women's Accessories</li>
+          <li
+            className={`cursor-pointer my-2 ${selectedCategory === "" ? "font-bold text-blue-600" : ""}`}
+            onClick={() => setSelectedCategory("")}
+          >
+            All Products
+          </li>
+          <li
+            className={`cursor-pointer my-2 ${selectedCategory === "Handbags" ? "font-bold text-blue-600" : ""}`}
+            onClick={() => setSelectedCategory("Handbags")}
+          >
+            Handbags
+          </li>
+          <li
+            className={`cursor-pointer my-2 ${selectedCategory === "Women's Clothing" ? "font-bold text-blue-600" : ""}`}
+            onClick={() => setSelectedCategory("Women's Clothing")}
+          >
+            Women's Clothing
+          </li>
+          <li
+            className={`cursor-pointer my-2 ${selectedCategory === "Women's Watches" ? "font-bold text-blue-600" : ""}`}
+            onClick={() => setSelectedCategory("Women's Watches")}
+          >
+            Women's Watches
+          </li>
+          <li
+            className={`cursor-pointer my-2 ${selectedCategory === "Women's Accessories" ? "font-bold text-blue-600" : ""}`}
+            onClick={() => setSelectedCategory("Women's Accessories")}
+          >
+            Women's Accessories
+          </li>
         </ul>
       </div>
 
@@ -82,13 +108,17 @@ function Section({ searchQuery }) {
           <div className="flex flex-wrap gap-20">
             {filteredProducts.map((product) => (
               <div key={product.id} className="text-center">
-                <img src={product.img} alt={product.name} className="w-64 h-60" />
+                <Link to={`/product/${product.id}`}>
+                  <img src={product.img} alt={product.name} className="w-64 h-60 cursor-pointer" />
+                </Link>
                 <p className="font-bold text-xl">{product.brand}</p>
                 <p>{product.name}</p>
                 <p>{product.rating}</p>
                 <p className="text-black font-semibold text-3xl">₹{product.price}</p>
                 <p className="text-black font-semibold ">{product.Delivery}</p>
-                <button className="bg-yellow-300 px-8 py-2 my-2 rounded-full mx-2">{product.Button}</button>
+                <button className="bg-yellow-300 px-8 py-2 my-2 rounded-full mx-2">
+                  {product.Button}
+                </button>
               </div>
             ))}
           </div>

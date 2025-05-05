@@ -17,6 +17,7 @@ function Section2({ searchQuery }) {
       rating: "⭐⭐⭐⭐",
       price: 700,
       Delivery: "FREE delivery ,Mon 20 Jan",
+      Button:"Add to cart",
     },
     {
       id: 2,
@@ -27,6 +28,7 @@ function Section2({ searchQuery }) {
       rating: "⭐⭐⭐⭐",
       price: 800,
       Delivery: "FREE delivery ,Mon 20 Jan",
+      Button:"Add to cart",
     },
     {
       id: 3,
@@ -37,6 +39,7 @@ function Section2({ searchQuery }) {
       rating: "⭐⭐⭐⭐",
       price: 600,
       Delivery: "FREE delivery ,Mon 20 Jan",
+      Button:"Add to cart",
     },
     {
       id: 4,
@@ -47,6 +50,7 @@ function Section2({ searchQuery }) {
       rating: "⭐⭐⭐⭐",
       price: 149,
       Delivery: "FREE delivery ,Mon 20 Jan",
+      Button:"Add to cart",
     },
   ];
 
@@ -125,6 +129,7 @@ function Section2({ searchQuery }) {
                 <p>{product.rating}</p>
                 <p className="text-black font-semibold text-3xl">₹{product.price}</p>
                 <p className="text-black font-semibold ">{product.Delivery}</p>
+                <button className="bg-yellow-300 px-8 py-2 my-2 rounded-full mx-2">{product.Button}</button>
               </div>
             ))}
           </div>
